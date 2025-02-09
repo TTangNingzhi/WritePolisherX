@@ -50,7 +50,7 @@ const polishText = async () => {
         }
 
         const suggestions = await suggestionsResponse.text();
-        elements.suggestions.innerText = suggestions;
+        elements.suggestions.innerText = suggestions.replace(/\n{2,}/g, '\n');
 
     } catch (error) {
         elements.output.innerText = `Error: ${error.message}`;
