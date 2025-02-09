@@ -2,7 +2,9 @@
 
 A writing enhancement toolkit that includes both a Chrome extension and a Tampermonkey script. It polishes your writing by correcting grammar, improving expression, and translating non-English text to English when needed.
 
-<img src="static/combination.png" style="max-width: 100%; width: 680px;" alt="WritePolisherX Screenshot">
+<div style="text-align: center;">
+    <img src="static/combination.png" style="max-width: 100%; width: 680px;" alt="WritePolisherX Screenshot">
+</div>
 
 ## Components
 
@@ -31,7 +33,7 @@ A writing enhancement toolkit that includes both a Chrome extension and a Tamper
 ├── tampermonkey_script/
 │ └── script.js # Userscript implementation
 │
-├── cloud_functions/
+├── cloud_functions/ # APIs registered in Google Cloud Functions
 ├── polish_text/ # Text enhancement API
 │ ├── index.js # Main function logic
 │ └── package.json
