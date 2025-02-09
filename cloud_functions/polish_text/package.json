@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+        "@google-cloud/functions-framework": "^3.0.0",
+        "openai": "^4.0.0"
+    },
+    "type": "module"
+}

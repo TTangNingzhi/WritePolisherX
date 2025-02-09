@@ -1,0 +1,13 @@
+{
+  "name": "WritePolisherX",
+  "description": "corrects grammar, improves expression, and translates to English if needed",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}

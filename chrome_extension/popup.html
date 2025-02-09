@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WritePolisherX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>WritePolisherX</h1>
+      <p class="welcome-text">
+        Corrects grammar, improves expression, and translates to English if
+        needed
+      </p>
+      <textarea
+        id="inputText"
+        placeholder="Input your text here"
+        rows="5"
+        cols="40"
+      ></textarea>
+
+      <button id="checkGrammar">Polish Writing</button>
+      <div id="loading" class="loading">Processing...</div>
+
+      <div class="results-container">
+          <div id="output"></div>
+          <h3 class="section-label">Improvements</h3>
+          <div id="suggestions"></div>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
