@@ -2,7 +2,7 @@
 
 A writing enhancement toolkit that includes both a Chrome extension and a Tampermonkey script. It polishes your writing by correcting grammar, improving expression, and translating non-English text to English when needed.
 
-<div style="text-align: center;">
+<div align="center">
     <img src="static/combination.png" style="max-width: 100%; width: 680px;" alt="WritePolisherX Screenshot">
 </div>
 
