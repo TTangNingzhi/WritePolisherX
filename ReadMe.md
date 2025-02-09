@@ -11,7 +11,6 @@ A writing enhancement toolkit that includes both a Chrome extension and a Tamper
 ### 🎯 Chrome Extension
 - Easy-to-use popup interface
 - Instant text polishing
-
 - Clear improvement suggestions
 - Works with any text input
 
