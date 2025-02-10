@@ -1,9 +1,11 @@
 const elements = {
     input: document.getElementById("inputText"),
+    inputRequirements: document.getElementById("inputRequirements"),
     output: document.getElementById("output"),
     button: document.getElementById("checkGrammar"),
     loading: document.getElementById("loading"),
-    suggestions: document.getElementById("suggestions")
+    suggestions: document.getElementById("suggestions"),
+    toggleSuggestions: document.getElementById("toggleSuggestions")
 };
 
 const API_URL = "https://us-central1-vivid-poet-450321-v7.cloudfunctions.net/polish-text";
@@ -20,37 +22,53 @@ const setLoading = (isLoading) => {
 
 const polishText = async () => {
     try {
+        const originalText = elements.input.value.trim();
+        const additionalRequirements = elements.inputRequirements.value.trim();
+
+        // Check if the original text is empty
+        if (!originalText) {
+            elements.output.innerText = "Please enter some text to improve.";
+            return;
+        }
+
         setLoading(true);
-        const originalText = elements.input.value;
 
         // Get the polished text
         const polishResponse = await fetch(API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text: originalText })
+            body: JSON.stringify({
+                text: originalText,
+                requirements: additionalRequirements
+            })
         });
 
         if (!polishResponse.ok) throw new Error(`Polish API Error: ${polishResponse.status}`);
         const polishedText = await polishResponse.text();
         elements.output.innerText = polishedText;
 
-        // Get the suggestions
-        const suggestionsResponse = await fetch(SUGGESTIONS_API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                originalText: originalText,
-                polishedText: polishedText
-            })
-        });
+        // Check if suggestions should be shown
+        if (elements.toggleSuggestions.checked) {
+            // Get the suggestions
+            const suggestionsResponse = await fetch(SUGGESTIONS_API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    originalText: originalText,
+                    polishedText: polishedText
+                })
+            });
 
-        if (!suggestionsResponse.ok) {
-            const errorText = await suggestionsResponse.text();
-            throw new Error(`Suggestions API Error: ${suggestionsResponse.status} - ${errorText}`);
+            if (!suggestionsResponse.ok) {
+                const errorText = await suggestionsResponse.text();
+                throw new Error(`Suggestions API Error: ${suggestionsResponse.status} - ${errorText}`);
+            }
+
+            const suggestions = await suggestionsResponse.text();
+            elements.suggestions.innerText = suggestions.replace(/\n{2,}/g, '\n');
+        } else {
+            elements.suggestions.innerText = ''; // Clear suggestions if toggle is off
         }
-
-        const suggestions = await suggestionsResponse.text();
-        elements.suggestions.innerText = suggestions.replace(/\n{2,}/g, '\n');
 
     } catch (error) {
         elements.output.innerText = `Error: ${error.message}`;

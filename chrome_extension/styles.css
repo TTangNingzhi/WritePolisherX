@@ -27,9 +27,9 @@ h1 {
   margin: 0 0 15px 0;
 }
 
-#inputText {
+#inputText,
+#inputRequirements {
   width: 100%;
-  height: 120px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -39,17 +39,27 @@ h1 {
   box-sizing: border-box;
 }
 
+#inputText {
+  height: 100px;
+}
+
+#inputRequirements {
+  height: 60px;
+}
+
 #checkGrammar {
-  width: 100%;
-  padding: 10px;
+  width: auto;
+  padding: 8px 12px;
   background-color: #e7f5e7;
   color: #2e7d32;
   border: 1px solid #c8e6c9;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   transition: all 0.2s;
+  display: block;
+  margin: 0 auto;
 }
 
 #checkGrammar:hover {
@@ -102,4 +112,62 @@ h1 {
   color: #111;
   margin: 8px 0;
   font-weight: 500;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-improvements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+  background-color: #ccc;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #4caf50;
+}
+
+.toggle-checkbox:checked + .toggle-label::after {
+  transform: translateX(14px);
+}
+
+.toggle-text {
+  font-size: 13px;
+  color: #2c3e50;
+  font-weight: bold;
+  line-height: 16px;
 }

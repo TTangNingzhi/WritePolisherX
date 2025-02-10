@@ -26,7 +26,7 @@ async function polishText(req, res) {
             });
         }
 
-        const { text } = req.body;  // Extract text from request body
+        const { text, requirements } = req.body;  // Extract text and requirements from request body
 
         // 2. Initialize OpenAI client
         const openai = new OpenAI({
@@ -34,6 +34,9 @@ async function polishText(req, res) {
         });
 
         // 3. Build dynamic request body
+        const userMessageContent = `Please fix the grammar and expression errors in the following text:\n\n${text}` +
+            (requirements && requirements.trim() !== '' ? `\n\n[Note: The following text does not need to be improved or displayed to the user] The user also provided the following requirements, please follow them as well. In case of any conflicts, prioritize the user's requirements: ${requirements}` : '');
+
         const response = await openai.chat.completions.create({
             model: "gpt-4o",
             messages: [
@@ -51,7 +54,7 @@ async function polishText(req, res) {
                 },
                 {
                     role: "user",
-                    content: `Please fix the grammar and expression errors in the following text:\n\n${text}`
+                    content: userMessageContent
                 }
             ],
             response_format: { type: "text" },

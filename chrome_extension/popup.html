@@ -15,8 +15,15 @@
       </p>
       <textarea
         id="inputText"
-        placeholder="Input your text here"
+        placeholder="Enter the text you would like to improve"
         rows="5"
+        cols="40"
+      ></textarea>
+
+      <textarea
+        id="inputRequirements"
+        placeholder="(Optional) Enter your additional requirements"
+        rows="3"
         cols="40"
       ></textarea>
 
@@ -24,10 +31,18 @@
       <div id="loading" class="loading">Processing...</div>
 
       <div class="results-container">
-          <div id="output"></div>
-          <h3 class="section-label">Improvements</h3>
-          <div id="suggestions"></div>
+        <div id="output"></div>
+        <div class="toggle-improvements">
+          <span class="toggle-text">Improvement Suggestions</span>
+          <input
+            type="checkbox"
+            id="toggleSuggestions"
+            class="toggle-checkbox"
+            checked
+          />
+          <label for="toggleSuggestions" class="toggle-label"></label>
         </div>
+        <div id="suggestions"></div>
       </div>
     </div>
     <script src="popup.js"></script>
