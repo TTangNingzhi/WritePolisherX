@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WritePolisherX</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>WritePolisherX</h1>
-      <p class="welcome-text">
-        Corrects grammar, improves expression, and translates to English if
-        needed
-      </p>
-      <textarea
-        id="inputText"
-        placeholder="Enter the text you would like to improve"
-        rows="5"
-        cols="40"
-      ></textarea>
 
-      <textarea
-        id="inputRequirements"
-        placeholder="(Optional) Enter your additional requirements"
-        rows="3"
-        cols="40"
-      ></textarea>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WritePolisherX</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-      <button id="checkGrammar">Polish Writing</button>
-      <div id="loading" class="loading">Processing...</div>
+<body>
+  <div class="container">
+    <h1>WritePolisherX</h1>
+    <p class="welcome-text">
+      Corrects grammar, improves expression, and translates to English if
+      needed
+    </p>
+    <textarea id="inputText" placeholder="Enter the text you would like to improve" rows="5" cols="40"></textarea>
 
-      <div class="results-container">
-        <div id="output"></div>
-        <div class="toggle-improvements">
-          <span class="toggle-text">Improvement Suggestions</span>
-          <input
-            type="checkbox"
-            id="toggleSuggestions"
-            class="toggle-checkbox"
-            checked
-          />
-          <label for="toggleSuggestions" class="toggle-label"></label>
-        </div>
-        <div id="suggestions"></div>
+    <textarea id="inputRequirements" placeholder="(Optional) Enter your additional requirements" rows="3"
+      cols="40"></textarea>
+
+    <button id="checkGrammar">Polish Writing</button>
+    <div id="loading" class="loading">Processing...</div>
+
+    <div class="results-container">
+      <div id="output"></div>
+      <div class="toggle-improvements">
+        <span class="toggle-text">Improvement Suggestions</span>
+        <input type="checkbox" id="toggleSuggestions" class="toggle-checkbox" />
+        <label for="toggleSuggestions" class="toggle-label"></label>
       </div>
+      <div id="suggestions"></div>
     </div>
-    <script src="popup.js"></script>
-  </body>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>
