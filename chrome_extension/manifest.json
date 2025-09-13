@@ -3,9 +3,7 @@
   "description": "Corrects grammar, improves expression, and translates to English if needed",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": [
-    "activeTab"
-  ],
+  "permissions": [],
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
