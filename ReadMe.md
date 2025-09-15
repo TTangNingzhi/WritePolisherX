@@ -1,5 +1,7 @@
 # WritePolisherX
 
+**WritePolisherX is now available on Chrome Web Store, please install it [here](https://chromewebstore.google.com/detail/writepolisherx/haiifhaflekkcbgoelihpacfbbeeolbd)!**
+
 A writing enhancement toolkit that includes both a Chrome extension and a Tampermonkey script. It polishes your writing by correcting grammar, improving expression, and translating non-English text to English when needed.
 
 <div align="center">
